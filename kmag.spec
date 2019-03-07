@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmag
-Version  : 18.12.2
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.12.2/src/kmag-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/kmag-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/kmag-18.12.2.tar.xz.sig
+Version  : 18.12.3
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.3/src/kmag-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/kmag-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/kmag-18.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -31,7 +31,6 @@ Summary: bin components for the kmag package.
 Group: Binaries
 Requires: kmag-data = %{version}-%{release}
 Requires: kmag-license = %{version}-%{release}
-Requires: kmag-man = %{version}-%{release}
 
 %description bin
 bin components for the kmag package.
@@ -79,22 +78,23 @@ man components for the kmag package.
 
 
 %prep
-%setup -q -n kmag-18.12.2
+%setup -q -n kmag-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549887289
+export SOURCE_DATE_EPOCH=1552001348
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549887289
+export SOURCE_DATE_EPOCH=1552001348
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmag
 cp COPYING %{buildroot}/usr/share/package-licenses/kmag/COPYING
@@ -126,6 +126,7 @@ popd
 %defattr(0644,root,root,0755)
 /usr/share/doc/HTML/ca/kmag/index.cache.bz2
 /usr/share/doc/HTML/ca/kmag/index.docbook
+/usr/share/doc/HTML/ca/kmag/screenshot.png
 /usr/share/doc/HTML/de/kmag/index.cache.bz2
 /usr/share/doc/HTML/de/kmag/index.docbook
 /usr/share/doc/HTML/de/kmag/screenshot.png
