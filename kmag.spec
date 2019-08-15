@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmag
-Version  : 19.04.3
-Release  : 10
-URL      : https://download.kde.org/stable/applications/19.04.3/src/kmag-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/kmag-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/kmag-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 11
+URL      : https://download.kde.org/stable/applications/19.08.0/src/kmag-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/kmag-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/kmag-19.08.0.tar.xz.sig
 Summary  : Screen Magnifier
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -78,16 +78,17 @@ man components for the kmag package.
 
 
 %prep
-%setup -q -n kmag-19.04.3
+%setup -q -n kmag-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562874359
+export SOURCE_DATE_EPOCH=1565902671
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -101,7 +102,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562874359
+export SOURCE_DATE_EPOCH=1565902671
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmag
 cp COPYING %{buildroot}/usr/share/package-licenses/kmag/COPYING
