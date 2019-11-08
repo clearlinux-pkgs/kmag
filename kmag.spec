@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmag
-Version  : 19.08.2
-Release  : 13
-URL      : https://download.kde.org/stable/applications/19.08.2/src/kmag-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/kmag-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/kmag-19.08.2.tar.xz.sig
+Version  : 19.08.3
+Release  : 14
+URL      : https://download.kde.org/stable/applications/19.08.3/src/kmag-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/kmag-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/kmag-19.08.3.tar.xz.sig
 Summary  : Screen Magnifier
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -78,14 +78,14 @@ man components for the kmag package.
 
 
 %prep
-%setup -q -n kmag-19.08.2
+%setup -q -n kmag-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570747254
+export SOURCE_DATE_EPOCH=1573172056
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -102,11 +102,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570747254
+export SOURCE_DATE_EPOCH=1573172056
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmag
-cp COPYING %{buildroot}/usr/share/package-licenses/kmag/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kmag/COPYING.DOC
+cp %{_builddir}/kmag-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/kmag/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+cp %{_builddir}/kmag-19.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmag/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -164,8 +164,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kmag/COPYING
-/usr/share/package-licenses/kmag/COPYING.DOC
+/usr/share/package-licenses/kmag/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+/usr/share/package-licenses/kmag/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 
 %files man
 %defattr(0644,root,root,0755)
