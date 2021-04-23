@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kmag
-Version  : 20.12.3
-Release  : 27
-URL      : https://download.kde.org/stable/release-service/20.12.3/src/kmag-20.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.3/src/kmag-20.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.3/src/kmag-20.12.3.tar.xz.sig
+Version  : 21.04.0
+Release  : 28
+URL      : https://download.kde.org/stable/release-service/21.04.0/src/kmag-21.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.0/src/kmag-21.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.0/src/kmag-21.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -79,15 +79,15 @@ man components for the kmag package.
 
 
 %prep
-%setup -q -n kmag-20.12.3
-cd %{_builddir}/kmag-20.12.3
+%setup -q -n kmag-21.04.0
+cd %{_builddir}/kmag-21.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618682673
+export SOURCE_DATE_EPOCH=1619217780
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -103,11 +103,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618682673
+export SOURCE_DATE_EPOCH=1619217780
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmag
-cp %{_builddir}/kmag-20.12.3/COPYING %{buildroot}/usr/share/package-licenses/kmag/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
-cp %{_builddir}/kmag-20.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmag/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kmag-21.04.0/COPYING %{buildroot}/usr/share/package-licenses/kmag/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+cp %{_builddir}/kmag-21.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmag/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
@@ -159,8 +159,6 @@ popd
 /usr/share/doc/HTML/pt_BR/kmag/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/kmag/index.docbook
 /usr/share/doc/HTML/pt_BR/kmag/screenshot.png
-/usr/share/doc/HTML/ru/kmag/index.cache.bz2
-/usr/share/doc/HTML/ru/kmag/index.docbook
 /usr/share/doc/HTML/sv/kmag/index.cache.bz2
 /usr/share/doc/HTML/sv/kmag/index.docbook
 /usr/share/doc/HTML/sv/kmag/screenshot.png
