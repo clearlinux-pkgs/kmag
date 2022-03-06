@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kmag
-Version  : 21.12.2
-Release  : 36
-URL      : https://download.kde.org/stable/release-service/21.12.2/src/kmag-21.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.2/src/kmag-21.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.2/src/kmag-21.12.2.tar.xz.sig
+Version  : 21.12.3
+Release  : 37
+URL      : https://download.kde.org/stable/release-service/21.12.3/src/kmag-21.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kmag-21.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kmag-21.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -79,15 +79,15 @@ man components for the kmag package.
 
 
 %prep
-%setup -q -n kmag-21.12.2
-cd %{_builddir}/kmag-21.12.2
+%setup -q -n kmag-21.12.3
+cd %{_builddir}/kmag-21.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644013748
+export SOURCE_DATE_EPOCH=1646535106
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -103,12 +103,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1644013748
+export SOURCE_DATE_EPOCH=1646535106
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmag
-cp %{_builddir}/kmag-21.12.2/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kmag/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/kmag-21.12.2/COPYING %{buildroot}/usr/share/package-licenses/kmag/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
-cp %{_builddir}/kmag-21.12.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmag/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kmag-21.12.3/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kmag/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/kmag-21.12.3/COPYING %{buildroot}/usr/share/package-licenses/kmag/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+cp %{_builddir}/kmag-21.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmag/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
